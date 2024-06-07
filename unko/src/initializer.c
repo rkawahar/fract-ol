@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   initializer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 14:26:27 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/07 21:39:08 by rkawahar         ###   ########.fr       */
+/*   Created: 2024/05/12 12:06:28 by yumatsui          #+#    #+#             */
+/*   Updated: 2024/05/12 19:18:45 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "fractol.h"
 
-void	ft_julia(void)
+void	initializer(t_vars *vars)
 {
-	double	*num;
-
-	
+	vars->fra.center_x = 0;
+	vars->fra.center_y = 0;
+	vars->fra.zoom = 1;
+	vars->fra.colorchange = 1;
 }
