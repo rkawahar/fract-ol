@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:27:38 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/11 14:40:09 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:53:15 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,24 @@
 int	div_mandel(int x, int y, t_data *vars)
 {
 	int		i;
-	double	div_x;
-	double	div_y;
+	double	xx;
+	double	yy;
+	double	tmp;
 
 	i = 0;
-	div_x = 0;
-	div_y = 0;
-	vars
+	xx = 0;
+	yy = 0;
+	vars -> frac.c_x = (double)(x - 960) + 960;
+	vars -> frac.c_y = (double)(y - 540) + 540;
+	while (i < 100)
+	{
+		if (xx * xx + yy * yy > 4)
+			return (i);
+		tmp = xx;
+		xx = xx * xx - yy * yy + vars -> frac.c_x;
+		yy = 2 * tmp * yy + vars -> frac.c_y;
+	}
+	return (0);
 }
 
 void	draw_mandelbrot(t_data *vars)
@@ -37,6 +48,7 @@ void	draw_mandelbrot(t_data *vars)
 		while (x < WIDTH)
 		{
 			color = div_mandel(x, y, vars);
+			color *= 
 		}
 		y++;
 	}
@@ -44,6 +56,9 @@ void	draw_mandelbrot(t_data *vars)
 
 void	ft_maldelbrot(t_data *vars)
 {
+	mlx_hook(vars -> win, 17, 0, close_window, vars);
+	mlx_mouse_hook(vars -> win, ft_zoom_mandel, vars);
+	mlx_key_hook(vars -> win, key_commands_mandel, vars);
 	draw_mandelbrot(vars);
 	mlx_loop(vars -> mlx);
 }

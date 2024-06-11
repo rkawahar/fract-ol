@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:11:12 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/07 20:26:50 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:46:47 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,8 @@ size_t	ft_strlen(const char *s)
 	return (ans);
 }
 
-// void	draw_pixel(void *vars, int x, int y, unsigned int color)
-// {
-// 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-// 		return ;
-// 	vars->img.addr = mlx_get_data_addr(vars->img.img, &vars->img.bits_per_pixel,
-// 			&vars->img.line_length, &vars->img.endian);
-// 	my_mlx_pixel_put(&vars->img, x, y, color);
-// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
-// }
+void	close_window(t_data *vars)
+{
+	mlx_destroy_window(vars -> mlx, vars -> win);
+	exit(0);
+}

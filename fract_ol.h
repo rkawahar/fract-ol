@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:08:19 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/11 14:41:09 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:09:41 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,24 @@
 # include <stdlib.h>
 # include <errno.h>
 
+typedef struct s_fractol {
+	double	c_x;
+	double	c_y;
+	double	magni;
+	double	center_x;
+	double	center_y;
+	int		color_factor;
+}	t_fractol;
+
 typedef struct s_data {
-	void	*win;
-	void	*mlx;
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	void		*win;
+	void		*mlx;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	t_fractol	frac;
 }				t_data;
 
 # define WIDTH 1920
@@ -38,5 +48,9 @@ size_t	ft_strlen(const char *s);
 void	ft_julia(void);
 void	ft_mlx(t_data *vars);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	close_window(t_data *vars);
+void	draw_mandelbrot(t_data *vars);
+void	ft_zoom_mandel(int key, t_data *vars);
+void	key_commands_mandel(int key, t_data *vars);
 
 #endif
