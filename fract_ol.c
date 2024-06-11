@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:07:29 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/07 14:26:15 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/11 14:18:10 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ char	*ft_gnl(void)
 int	main(void)
 {
 	char	*str;
+	t_data	*vars;
 
+	vars = (t_data *)malloc(sizeof(t_data));
 	str = (char *)malloc(1);
 	if (str == NULL)
 		exit(1);
@@ -70,10 +72,11 @@ int	main(void)
 		free(str);
 		str = ft_gnl();
 	}
+	ft_mlx(vars);
 	if (ft_strncmp(str, "Julia\n", 6) == 0)
 		ft_julia();
 	else
-		ft_mandelbrot();
+		ft_mandelbrot(vars);
 	free(str);
 }
 
