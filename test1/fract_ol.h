@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 10:56:24 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/13 15:29:03 by rkawahar         ###   ########.fr       */
+/*   Created: 2024/06/07 13:08:19 by rkawahar          #+#    #+#             */
+/*   Updated: 2024/06/13 10:17:45 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,24 @@ typedef struct s_img
 typedef struct s_data {
 	void		*win;
 	void		*mlx;
-	t_img		img;
+	t_img		*img;
 	t_fractol	frac;
 }				t_data;
 
 # define WIDTH 1920
 # define HEIGHT 1080
 
-void	ft_perror(void);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_perror(void);
 size_t	ft_strlen(const char *s);
-int		close_window(t_data *vars);
-t_data	*ft_create_vars(void);
-void	ft_mandelbrot(t_data vars);
-int		zoom_mandel(int key, int x, int y, t_data *vars);
-int		key_commands(int key, t_data *vars);
-void	my_mlx_pixel_put(t_img *data, int x, int y, unsigned int color);
 void	ft_julia(void);
+void	ft_mlx(t_data vars);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		close_window(t_data *vars);
 void	draw_mandelbrot(t_data *vars);
+int		ft_zoom_mandel(int key, t_data *vars);
+int		key_commands_mandel(int key, t_data *vars);
+void	ft_mandelbrot(t_data *vars);
+t_data	*ft_create_vars(void);
 
 #endif

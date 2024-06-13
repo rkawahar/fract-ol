@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:27:38 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/12 11:11:07 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/13 10:22:55 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	prot_pixel(int x, int y, int color, t_data *vars)
 		return ;
 	if (x < 0 || WIDTH <= x)
 		return ;
-	vars -> addr = mlx_get_data_addr(vars -> img, &vars -> bits_per_pixel, &vars -> line_length, &vars -> endian);
-	my_mlx_pixel_put(vars -> img, x, y, color * 10000);
+	vars -> img -> addr = mlx_get_data_addr(vars -> img, &vars -> img -> bits_per_pixel, &vars -> img -> line_length, &vars -> img -> endian);
+	my_mlx_pixel_put(vars -> img -> img, x, y, color * 1000);
 }
 
 void	draw_mandelbrot(t_data *vars)
@@ -65,11 +65,12 @@ void	draw_mandelbrot(t_data *vars)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(vars -> mlx, vars -> win, vars -> img, 0, 0);
+	mlx_put_image_to_window(vars -> mlx, vars -> win, vars -> img -> img, 0, 0);
 }
 
 void	ft_mandelbrot(t_data *vars)
 {
+	ft_mlx(*vars);
 	mlx_hook(vars -> win, 17, 0, close_window, vars);
 	mlx_mouse_hook(vars -> win, ft_zoom_mandel, vars);
 	mlx_key_hook(vars -> win, key_commands_mandel, vars);

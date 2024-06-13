@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract_ol.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:07:29 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/11 14:18:10 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:04:08 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(void)
 	char	*str;
 	t_data	*vars;
 
-	vars = (t_data *)malloc(sizeof(t_data));
+	vars = ft_create_vars();
 	str = (char *)malloc(1);
 	if (str == NULL)
 		exit(1);
@@ -72,15 +72,14 @@ int	main(void)
 		free(str);
 		str = ft_gnl();
 	}
-	ft_mlx(vars);
 	if (ft_strncmp(str, "Julia\n", 6) == 0)
 		ft_julia();
 	else
-		ft_mandelbrot(vars);
+		ft_mandelbrot(*vars);
 	free(str);
 }
 
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q a.out");
-}
+// __attribute__((destructor))
+// static void destructor() {
+//     system("leaks -q a.out");
+// }
