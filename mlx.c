@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:22:02 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/11 14:27:12 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:15:05 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	ft_mlx(t_data *vars)
 	vars -> mlx = mlx_init();
 	vars -> win = mlx_new_window(vars -> mlx, WIDTH, HEIGHT, "fractol");
 	vars -> img = mlx_new_image(vars -> mlx, WIDTH, HEIGHT);
-	vars -> addr = mlx_get_data_addr(vars -> img, vars -> bits_per_pixel, \
-		vars -> line_length, vars -> endian);
+	vars -> addr = mlx_get_data_addr(vars -> img, &vars -> bits_per_pixel, \
+		&vars -> line_length, &vars -> endian);
 }

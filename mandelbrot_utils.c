@@ -6,22 +6,23 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:45:49 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/11 18:10:18 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:14:29 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-void	ft_zoom_mandel(int key, t_data *vars)
+int	ft_zoom_mandel(int key, t_data *vars)
 {
 	if (key == 5)
 		vars -> frac.magni *= 1.25;
 	else if (key == 4)
 		vars -> frac.magni *= 0.8;
 	draw_mandelbrot(vars);
+	return (0);
 }
 
-void	key_commands_mandel(int key, t_data *vars)
+int	key_commands_mandel(int key, t_data *vars)
 {
 	if (key == 123)
 		vars -> frac.center_x -= 0.5 / vars -> frac.magni;
@@ -36,4 +37,5 @@ void	key_commands_mandel(int key, t_data *vars)
 	else if (key == 49)
 		vars -> frac.color_factor += 1;
 	draw_mandelbrot(vars);
+	return (0);
 }

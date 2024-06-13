@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:11:12 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/11 17:46:47 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:12:14 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ size_t	ft_strlen(const char *s)
 	return (ans);
 }
 
-void	close_window(t_data *vars)
+int	close_window(t_data *vars)
 {
 	mlx_destroy_window(vars -> mlx, vars -> win);
 	exit(0);

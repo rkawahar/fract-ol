@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:08:19 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/11 18:09:41 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/13 09:46:55 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ size_t	ft_strlen(const char *s);
 void	ft_julia(void);
 void	ft_mlx(t_data *vars);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	close_window(t_data *vars);
+int		close_window(t_data *vars);
 void	draw_mandelbrot(t_data *vars);
-void	ft_zoom_mandel(int key, t_data *vars);
-void	key_commands_mandel(int key, t_data *vars);
+int		ft_zoom_mandel(int key, t_data *vars);
+int		key_commands_mandel(int key, t_data *vars);
+void	ft_mandelbrot(t_data *vars);
 
 #endif

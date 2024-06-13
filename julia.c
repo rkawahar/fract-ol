@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:26:27 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/07 21:39:08 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:15:54 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_julia(void)
 {
-	double	*num;
+	// double	*num;
 
 	
 }
