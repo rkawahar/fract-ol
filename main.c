@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:07:29 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/13 12:04:08 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/13 20:12:16 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,11 @@ int	main(void)
 		str = ft_gnl();
 	}
 	if (ft_strncmp(str, "Julia\n", 6) == 0)
-		ft_julia();
+		ft_select_num(vars);
 	else
 		ft_mandelbrot(*vars);
 	free(str);
+	free(vars);
 }
 
 // __attribute__((destructor))

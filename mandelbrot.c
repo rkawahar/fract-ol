@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:06:59 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/13 15:28:51 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:37:34 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	div_mandel(int x, int y, t_data *vars)
 	vars->frac.c_x = (double)(x - WIDTH / 2) / (WIDTH * vars->frac.magni) * 4 + vars->frac.center_x;
 	vars->frac.c_y = (double)(y - HEIGHT / 2) / (WIDTH * vars->frac.magni) * 4 + vars->frac.center_y;
 	// printf("magni = %f\n", vars -> frac.magni);
-	while (i < 1000)
+	while (i < 100)
 	{
 		if (xx * xx + yy * yy > 4)
 			return (i);
