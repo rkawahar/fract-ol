@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:56:24 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/14 18:02:19 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 19:11:58 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_data {
 	t_fractol	frac;
 }				t_data;
 
-# define WIDTH 1920
+# define WIDTH 1080
 # define HEIGHT 1080
 
 void	ft_perror(void);
@@ -63,5 +63,11 @@ void	draw_mandelbrot(t_data *vars);
 char	*re_create(char *str, char tmp);
 char	*ft_gnl(void);
 int		ft_atoi(const char *str);
+int		zoom_julia(int key, int x, int y, t_data *vars);
+int		key_commands_julia(int key, t_data *vars);
+void	ft_julia(t_data vars);
+void	draw_julia(t_data *vars);
+int		div_julia(int x, int y, t_data *vars);
+void	prot_pixel(int x, int y, unsigned int color, t_data *vars);
 
 #endif

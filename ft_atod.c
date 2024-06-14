@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 18:56:46 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/14 18:32:05 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 20:29:34 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,33 @@ int	ft_without_dot(char *int_str, char *num)
 	int	i;
 	int	after;
 
-	i = -1;
-	while (num[++i] != '.')
+	i = 0;
+	while (num[i] != '.' && num[i])
+	{
 		int_str[i] = num[i];
-	i++;
+		i++;
+	}
+	if (num[i] == '.')
+		i++;
 	after = -1;
 	while (num[i + (++after)])
 		int_str[i + after - 1] = num[i + after];
 	int_str[i + after - 1] = '\0';
 	return (after);
+}
+
+int	check_dot(char *num)
+{
+	int	i;
+
+	i = 0;
+	while (num[i] != '\0')
+	{
+		if (num[i] == '.')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 double	ft_atod(char *num)
@@ -58,8 +76,10 @@ double	ft_atod(char *num)
 	int		int_num;
 	int		after;
 	char	*int_str;
+	int		flg;
 
-	int_str = (char *)malloc(ft_strlen(num));
+	flg = check_dot(num);
+	int_str = (char *)malloc(ft_strlen(num) + flg);
 	if (int_str == NULL)
 		exit(1);
 	after = ft_without_dot(int_str, num);
@@ -89,7 +109,8 @@ void	ft_select_num(t_data *vars)
 		exit(1);
 	}
 	vars -> frac.c_x = ft_atod(str1);
-	vars -> frac.c_x = ft_atod(str2);
+	vars -> frac.c_y = ft_atod(str2);
 	free(str1);
 	free(str2);
+	ft_julia(*vars);
 }
