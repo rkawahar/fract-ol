@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:50:13 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/14 19:05:16 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 20:54:04 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int	div_julia(int x, int y, t_data *vars)
 	double	tmp;
 
 	i = 0;
-	xx = (double)(x - WIDTH / 2) / (WIDTH * vars->frac.magni) * 4 + vars->frac.center_x;
-	yy = (double)(y - HEIGHT / 2) / (HEIGHT * vars->frac.magni) * 4 + vars->frac.center_y;
+	xx = (double)(x - WIDTH / 2) / (WIDTH * vars->frac.magni) * 4
+		+ vars->frac.center_x;
+	yy = (double)(y - HEIGHT / 2) / (HEIGHT * vars->frac.magni) * 4
+		+ vars->frac.center_y;
 	while (++i <= 100)
 	{
 		if (xx * xx + yy * yy > 4)
