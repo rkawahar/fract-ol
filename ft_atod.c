@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 18:56:46 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/13 20:53:24 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:32:05 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,37 @@ int	check_num(char *num)
 	return (i);
 }
 
+int	ft_without_dot(char *int_str, char *num)
+{
+	int	i;
+	int	after;
+
+	i = -1;
+	while (num[++i] != '.')
+		int_str[i] = num[i];
+	i++;
+	after = -1;
+	while (num[i + (++after)])
+		int_str[i + after - 1] = num[i + after];
+	int_str[i + after - 1] = '\0';
+	return (after);
+}
+
 double	ft_atod(char *num)
 {
 	double	ans;
-	int		before;
+	int		int_num;
 	int		after;
-	int		i;
+	char	*int_str;
 
-	
+	int_str = (char *)malloc(ft_strlen(num));
+	if (int_str == NULL)
+		exit(1);
+	after = ft_without_dot(int_str, num);
+	int_num = ft_atoi(int_str);
+	ans = (double)int_num * pow(0.1, (double)after);
+	free(int_str);
+	return (ans);
 }
 
 void	ft_select_num(t_data *vars)
@@ -67,7 +90,6 @@ void	ft_select_num(t_data *vars)
 	}
 	vars -> frac.c_x = ft_atod(str1);
 	vars -> frac.c_x = ft_atod(str2);
-	(void)vars;
 	free(str1);
 	free(str2);
 }

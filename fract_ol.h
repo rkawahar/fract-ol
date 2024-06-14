@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:56:24 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/13 20:12:31 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:02:19 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <errno.h>
+# include <limits.h>
+# include <math.h>
 
 typedef struct s_fractol {
 	double	c_x;
@@ -60,5 +62,6 @@ void	ft_select_num(t_data *vars);
 void	draw_mandelbrot(t_data *vars);
 char	*re_create(char *str, char tmp);
 char	*ft_gnl(void);
+int		ft_atoi(const char *str);
 
 #endif

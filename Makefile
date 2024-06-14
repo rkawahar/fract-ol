@@ -1,5 +1,5 @@
 NAME	= fractol
-SRCS	= main.c utils.c mandelbrot.c julia.c mlx.c
+SRCS	= main.c utils.c mandelbrot.c julia.c mlx.c ft_atoi.c ft_atod.c
 CC 		= cc
 CFLAGS 	= -Wall -Wextra -Werror
 
